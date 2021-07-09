@@ -37,7 +37,9 @@ public class BaseTest {
         Boolean isGetAspirationBtnDisplayed = SpendAndSave.getAspiration_btn(driver).isDisplayed();
         Boolean isGetAspirationPlusBtnDisplayed = SpendAndSave.getAspirationPlus_btn(driver).isDisplayed();
 
+        //Verifying if the Spend and Save Plans are displayed
         assertTrue(isSpendAndSavePlansDisplayed);
+        //Verifying there are 2 card products, Aspiration and Aspiration Plus
         assertTrue(isGetAspirationBtnDisplayed);
         assertTrue(isGetAspirationPlusBtnDisplayed);
     }

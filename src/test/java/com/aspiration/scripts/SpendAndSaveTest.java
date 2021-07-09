@@ -3,7 +3,6 @@ package com.aspiration.scripts;
 import com.aspiration.pages.Base;
 import com.aspiration.pages.SpendAndSave;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -39,6 +38,7 @@ public class SpendAndSaveTest {
         SpendAndSave.navigateToGetAspiration(driver);
         Boolean isInputEmailBoxDisplayed = SpendAndSave.inputEmailBox(driver).isDisplayed();
 
+        //Verifying if a modal containing an input field for an email address to sign up appears
         assertTrue(isInputEmailBoxDisplayed);
     }
 
@@ -49,6 +49,7 @@ public class SpendAndSaveTest {
         Boolean isYearlyPlanDisplayed = SpendAndSave.yearlyPlan(driver).isDisplayed();
         Boolean isMonthlyPlanDisplayed = SpendAndSave.monthlyPlan(driver).isDisplayed();
 
+        //Verifying a modal with monthly and yearly plans appears
         assertTrue(isYearlyPlanDisplayed);
         assertTrue(isMonthlyPlanDisplayed);
 
@@ -61,7 +62,9 @@ public class SpendAndSaveTest {
         String actualYearlyPlanPrice = "$71.88";
         String actualMonthlyPlanPrice = "$7.99";
 
+        //Verifying that yearly radio option is $71.88 paid once yearly
         assertEquals(SpendAndSave.yearlyPlanPrice(driver).getText(), actualYearlyPlanPrice);
+        //Verifying that monthly radio option is $7.99 paid monthly
         assertEquals(SpendAndSave.monthlyPlanPrice(driver).getText(), actualMonthlyPlanPrice);
     }
 }
