@@ -1,5 +1,6 @@
 package com.aspiration.scripts;
 
+import com.aspiration.dataprovider.ConfigFileReader;
 import com.aspiration.pages.Base;
 import com.aspiration.pages.SpendAndSave;
 import org.junit.After;
@@ -15,11 +16,11 @@ public class BaseTest {
 
     @Before
     public void setUp() {
-        final String ASPIRATION_URL = "https://aspiration.com";
-        System.setProperty("webdriver.chrome.driver", "//Users//paulineramo//Documents//chromedriver");
+        ConfigFileReader configFileReader= new ConfigFileReader();
+        System.setProperty("webdriver.chrome.driver", configFileReader.getDriverPath());
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get(ASPIRATION_URL);
+        driver.get(configFileReader.getApplicationUrl());
     }
 
     @After

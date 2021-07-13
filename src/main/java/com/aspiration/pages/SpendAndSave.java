@@ -27,13 +27,13 @@ public class SpendAndSave {
 
     // WebElement for the Get Aspiration button
     public static WebElement getAspiration_btn(WebDriver driver) {
-        element = driver.findElement(By.xpath("//button[text()=' Get Aspiration ']"));
+        element = driver.findElement(By.xpath("//button[contains(text(), 'Get Aspiration')]"));
         return element;
     }
 
     // WebElement for the Get Aspiration Plus button
     public static WebElement getAspirationPlus_btn(WebDriver driver) {
-        element = driver.findElement(By.xpath("//button[text()=' Get Aspiration Plus ']"));
+        element = driver.findElement(By.xpath("//button[contains(text(), 'Get Aspiration Plus')]"));
         return element;
     }
 

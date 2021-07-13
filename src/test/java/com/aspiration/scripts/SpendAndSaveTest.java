@@ -1,5 +1,6 @@
 package com.aspiration.scripts;
 
+import com.aspiration.dataprovider.ConfigFileReader;
 import com.aspiration.pages.Base;
 import com.aspiration.pages.SpendAndSave;
 import org.junit.After;
@@ -7,21 +8,20 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class SpendAndSaveTest {
 
     private static WebDriver driver;
+    ConfigFileReader configFileReader= new ConfigFileReader();
 
     @Before
     public void setUp() {
-        final String ASPIRATION_URL = "https://aspiration.com";
-        System.setProperty("webdriver.chrome.driver", "//Users//paulineramo//Documents//chromedriver");
+        System.setProperty("webdriver.chrome.driver", configFileReader.getDriverPath());
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get(ASPIRATION_URL);
+        driver.get(configFileReader.getApplicationUrl());
         Base.navigateToSpendAndSave(driver);
     }
 
